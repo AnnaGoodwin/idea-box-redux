@@ -1,0 +1,68 @@
+/*body*/
+* {
+  box-sizing: border-box;
+  border: solid 1px red;
+}
+
+body {
+  height: 100vh;
+}
+
+/*nav*/
+nav {
+  background-color: #1F1F3D;
+  float: left;
+  height: 100%;
+  width: 25%;
+}
+
+.nav-quality {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  color: #1F1F3D;
+}
+
+button:hover:enabled {
+  background-color: #D14119;
+}
+
+section {
+  background-color: #A9AAD2;
+  flex-direction: column;
+  height: 300px;
+}
+
+/*main*/
+main {
+  height: 68.8vh;
+  background-color: #EAEAF4;
+  display: flex;
+}
+
+/*article*/
+article {
+  width: 100%;
+}
+
+.search-icon {
+  height: 30px; 
+  width: 30px;
+}
+
+.inactive-button {
+  height: 30px; 
+  width: 30px;
+}
+
+.active-button {
+  height: 30px; 
+  width: 30px;
+}
+
+.search-icon {
+  height: 30px;
+  width: 30px;
+}
