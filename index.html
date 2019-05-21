@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="sytlesheet" href="normalize.css">
+  <link href="styles.css" type="text/css" rel="stylesheet" />
   <title>
     Idea Box
   </title>
@@ -16,24 +18,24 @@
     <button>
       Show Starred Ideas
     </button>
-    <div>
+    <div class="nav-quality">
       <h2>
         Filter by Quality
       </h2>
-      <button>
+      <button class="nav-button">
         Swill
       </button>
-      <button>
+      <button class="nav-button">
         Plausible
       </button>
-      <button>
+      <button class="nav-button">
         Genius
       </button>
       <label for="new-quality">
         New Quality
       </label>
       <input type="text" name="new-quality">
-      <button>
+      <button class="nav-button">
         Add New Quality
       </button>
     </div>
@@ -76,16 +78,16 @@
         </span>
       </p>
       <footer>
-        <img src="Images/upvote.svg" alt="">
-        <img src="Images/upvote-active.svg" alt="">
+        <img src="Images/upvote.svg" class="inactive-button" alt="">
+        <img src="Images/upvote-active.svg" class="active-button" alt="">
         <p>
           Quality:
         </p>
           <span>
             Swill
           </span>
-          <img src="Images/downvote.svg" alt="">
-          <img src="Images/downvote-active.svg" alt="">
+          <img src="Images/downvote.svg" class="inactive-button" alt="">
+          <img src="Images/downvote-active.svg" class="active-button" alt="">
       </footer>
     </article> 
   </main>
