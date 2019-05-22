@@ -6,13 +6,15 @@
 
 body {
   height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 /*nav*/
 nav {
   background-color: #1F1F3D;
   float: left;
-  height: 100%;
+  height: 100vh;
   width: 25%;
 }
 
@@ -22,17 +24,61 @@ nav {
 }
 
 button {
-  color: #1F1F3D;
+  background-color: #1F1F3D;
+  color: #ffffff;
+  text-align: left;
+  width: 100%;
 }
 
 button:hover:enabled {
   background-color: #D14119;
 }
 
+.title-input {
+  height: 25px;
+}
+
+.save-button {
+  background-color: #1F1F3D;
+  color: #ffffff;
+  font-size: 15px;
+  height: 30px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+#text-body {
+  height: 65px;
+}
+
 section {
   background-color: #A9AAD2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   flex-direction: column;
   height: 300px;
+}
+
+.search-container {
+  display: flex;
+  margin-top: 15px;
+}
+
+.search-icon {
+  height: 100%;
+}
+
+.search-input {
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  grid-column: 2;
+  flex-direction: column;
+  width: 250px;
+  margin: 10px;
 }
 
 /*main*/
@@ -40,21 +86,33 @@ main {
   height: 68.8vh;
   background-color: #EAEAF4;
   display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 /*article*/
 article {
-  width: 100%;
+  width: 250px;
+  padding: 10px;
 }
 
 .search-icon {
   height: 30px; 
   width: 30px;
+  background-color: #1F1F3D;
 }
 
 .inactive-button {
   height: 30px; 
   width: 30px;
+}
+
+.star-quality-btn {
+  text-align: center;
+}
+
+.nav-text {
+  color: #ffffff;
 }
 
 .active-button {
