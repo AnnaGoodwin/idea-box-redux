@@ -152,6 +152,8 @@ header {
 footer {
   background-color: #A9AAD2;
   display: flex;
+  align-items: center;
+  
 }
 
 .quality-text {
