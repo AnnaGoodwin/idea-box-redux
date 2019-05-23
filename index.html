@@ -55,17 +55,17 @@
     <textarea name="body" id="text-body" cols="30" rows="10">
     </textarea>
     <div>
-    <button class="save-button">
+    <button class="save-button" id="save-btn" >
       Save
     </button>
     <div class="search-container">
-      <img class="search-icon" id="search-btn" src="Images/search.svg" class="search-icon">
+      <img class="search-icon" src="Images/search.svg" id="search-btn">
       <input class="search-input" type="search" placeholder="Search ideas">
     </div>
   </form>
   </section>
   <main>
-    <article>
+    <article id="idea-card">
       <header>
        <div class="star-container css-final-styles">
         <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
@@ -104,5 +104,7 @@
       </footer>
     </article> 
   </main>
+  <script type="text/javascript" src="idea2.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

@@ -17,6 +17,15 @@ var activeUp = document.querySelector('#active-up')
 // querySelectors inputs
 
 
+var newIdea = new Idea(titleInput.value, bodyInput.value, star, Date.now())
+newIdea.saveToStorage(array)
+
+// function for inseerting values from inputs to cards
+
+//insertAdjacentHTML
+
+
+
 //eventListeners
 document.addEventListener('click', showStarred)
 document.addEventListener('click', swillBtn)
