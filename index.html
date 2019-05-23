@@ -15,27 +15,27 @@
     <h2>
       Filter Starred Ideas
     </h2>
-    <button>
+    <button id="show-starred-btn">
       Show Starred Ideas
     </button>
     <div class="nav-quality">
       <h2>
         Filter by Quality
       </h2>
-      <button class="nav-button">
+      <button class="nav-button" id="swill-btn">
         Swill
       </button>
-      <button class="nav-button">
+      <button class="nav-button" id="plausible-btn">
         Plausible
       </button>
-      <button class="nav-button">
+      <button class="nav-button" id="genius-btn">
         Genius
       </button>
       <label for="new-quality">
         New Quality
       </label>
       <input type="text" name="new-quality">
-      <button class="nav-button">
+      <button class="nav-button" id="add-quality">
         Add New Quality
       </button>
     </div>
@@ -51,21 +51,21 @@
     <textarea name="body" id="text-body" cols="30" rows="10">
       Write text here
     </textarea>
-    <button>
+    <button class="save-btn">
       Save
     </button>
     <div>
-      <img src="Images/search.svg" class="search-icon">
+      <img src="Images/search.svg" class="search-icon" id="search-btn">
       <input type="search" placeholder="Search ideas">
     </div>
   </section>
   <main>
     <article>
       <header>
-        <img src="Images/star.svg" alt="" class="inactive-button">
-        <img src="Images/star-active.svg" alt="" class="active-button">
-        <img src="Images/delete.svg" alt="" class="inactive-button">
-        <img src="Images/delete-active.svg" alt=""class="active-button">
+        <img src="Images/star.svg" alt="" class="inactive-button" id="inactive-star">
+        <img src="Images/star-active.svg" alt="" class="active-button" id="active-star">
+        <img src="Images/delete.svg" alt="" class="inactive-button" id="inactive-delete">
+        <img src="Images/delete-active.svg" alt=""class="active-button" id="active-delete">
       </header>
       <h4>
       <span>
@@ -78,16 +78,16 @@
         </span>
       </p>
       <footer>
-        <img src="Images/upvote.svg" class="inactive-button" alt="">
-        <img src="Images/upvote-active.svg" class="active-button" alt="">
+        <img src="Images/upvote.svg" class="inactive-button" id="inactive-up" alt="">
+        <img src="Images/upvote-active.svg" class="active-button" id="active-up" alt="">
         <p>
           Quality:
         </p>
           <span>
             Swill
           </span>
-          <img src="Images/downvote.svg" class="inactive-button" alt="">
-          <img src="Images/downvote-active.svg" class="active-button" alt="">
+          <img src="Images/downvote.svg" class="inactive-button" id="inactive-down" alt="">
+          <img src="Images/downvote-active.svg" class="active-button" id="active-down" alt="">
       </footer>
     </article> 
   </main>
