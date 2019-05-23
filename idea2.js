@@ -5,11 +5,13 @@ class Idea {
     this.id = id;
     this.star = true;
   }
-  saveToStorage(newIdeas) {
+  saveToStorage(newIdea) {
     localStorage.setItem('ideas', newIdeas);
   }
-  removeFromStorage
 
+  removeFromStorage(newIdea) {
+    localStorage.removeitem('ideas', )
+  }
 
 // from main.js
   var newIdea = new Idea(input1.value, input2.value, Date.now())

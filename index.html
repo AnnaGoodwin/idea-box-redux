@@ -38,8 +38,6 @@
         New Quality
       </label>
       <input class="quality-input ss-final-styles" type="text" name="new-quality">
-      <button class="star-quality-btn">
-      <input type="text" name="new-quality">
       <button id="add-quality" class="star-quality-btn nav-button">
         Add New Quality
       </button>
@@ -57,17 +55,12 @@
     <textarea name="body" id="text-body" cols="30" rows="10">
       Write text here
     </textarea>
-    <button class="save-btn">
-      Save
-    </button>
     <div>
-      <img src="Images/search.svg" class="search-icon" id="search-btn">
-      <input type="search" placeholder="Search ideas">
     <button class="save-button">
       Save
     </button>
     <div class="search-container">
-      <img class="search-icon" src="Images/search.svg" class="search-icon">
+      <img class="search-icon" id="search-btn" src="Images/search.svg" class="search-icon">
       <input class="search-input" type="search" placeholder="Search ideas">
     </div>
   </form>
@@ -76,17 +69,13 @@
     <article>
       <header>
        <div class="star-container css-final-styles">
-          <img src="Images/star.svg" alt="" class="inactive-button-star">
-          <img src="Images/star-active.svg" alt="" class="active-button-star">
+        <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
+        <img src="Images/star-active.svg" alt="" class="active-button-star" id="active-star">
        </div>
        <div class="delete-container">
-          <img src="Images/delete.svg" alt="" class="inactive-button-x">
-          <img src="Images/delete-active.svg" alt=""class="active-button-x">
+          <img src="Images/delete.svg" alt="" class="inactive-button-x" id="inactive-delete">
+          <img src="Images/delete-active.svg" alt=""class="active-button-x" id="active-delete">
         </div>
-        <img src="Images/star.svg" alt="" class="inactive-button" id="inactive-star">
-        <img src="Images/star-active.svg" alt="" class="active-button" id="active-star">
-        <img src="Images/delete.svg" alt="" class="inactive-button" id="inactive-delete">
-        <img src="Images/delete-active.svg" alt=""class="active-button" id="active-delete">
       </header>
       <h4>
       <span>
@@ -100,24 +89,19 @@
       </p>
       <footer>
         <div class="upvote-container css-final-styles">
-          <img src="Images/upvote.svg" class="inactive-button-upvote" alt="">
-          <img src="Images/upvote-active.svg" class="active-button-upvote" alt="">
+          <img src="Images/upvote.svg" class="inactive-button-upvote" id="inactive-up" alt="">
+          <img src="Images/upvote-active.svg" class="active-button-upvote" id="active-up" alt="">
         </div>
         <p class="quality-text">
-        <img src="Images/upvote.svg" class="inactive-button" id="inactive-up" alt="">
-        <img src="Images/upvote-active.svg" class="active-button" id="active-up" alt="">
-        <p>
           Quality:
           <span>
             Swill
           </span>
         </p>
           <div class="downvote-container">
-            <img src="Images/downvote.svg" class="inactive-button-downvote" alt="">
-            <img src="Images/downvote-active.svg" class="active-button-downvote" alt="">
+            <img src="Images/downvote.svg" class="inactive-button-downvote" id="inactive-down" alt="">
+            <img src="Images/downvote-active.svg" class="active-button-downvote" id="active-down" alt="">
           </div>
-          <img src="Images/downvote.svg" class="inactive-button" id="inactive-down" alt="">
-          <img src="Images/downvote-active.svg" class="active-button" id="active-down" alt="">
       </footer>
     </article> 
   </main>
