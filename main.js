@@ -6,8 +6,8 @@
 // var addQuality = document.querySelector('#add-quality')
 var saveBtn = document.querySelector('#save-btn')
 // var searchBtn = document.querySelector('#search-btn')
-// var inactiveStr = document.querySelector('#inactive-star')
-// var activeStr = document.querySelector('#active-star')
+var inactiveStr = document.querySelector('#inactive-star')
+var activeStr = document.querySelector('#active-star')
 // var inactiveDlt = document.querySelector('#inactive-delete')
 // var activeDlt = document.querySelector('#active-delete')
 // var inactiveDwn = document.querySelector('#inactive-down')
@@ -17,7 +17,6 @@ var saveBtn = document.querySelector('#save-btn')
 
 var cardPopulator = document.getElementById('card-populate');
 // querySelectors inputs
-
 
 // var newIdea = new Idea(titleInput.value, bodyInput.value, star, Date.now())
 // newIdea.saveToStorage(array)
@@ -37,14 +36,16 @@ var bodyInput = document.getElementById('text-body');
 // document.addEventListener('click', saveBtn)
 // document.addEventListener('click', searchBtn)
 // document.addEventListener('keyup', )
-
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
 
 function saveAll() {
+  var newIdea = new Idea(titleInput.value, bodyInput.value, Date.now(), )
+  console.log(newIdea)
+  newIdea.saveToStorage()
   populator();
   buttonToggle();
-}
+  }
 
 function populator() {
   event.preventDefault();
