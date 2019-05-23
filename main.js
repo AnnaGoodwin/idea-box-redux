@@ -44,6 +44,7 @@ bodyInput.addEventListener('keyup', buttonToggle);
 function saveAll() {
   populator();
   buttonToggle();
+  clearFields();
 }
 
 function populator() {
@@ -89,10 +90,20 @@ function populator() {
 };
 
 function buttonToggle() {
-  if(titleInput.value === '' && bodyInput.value === '') {
+  if(titleInput.value === '' || bodyInput.value === '') {
     saveBtn.disabled = true;
   } else {
     saveBtn.disabled = false;
   }
 };
+
+function clearFields() {
+  titleInput.value = '';
+  bodyInput.value = '';
+  disableSaveButton();
+}
+
+function disableSaveButton() {
+  saveBtn.disabled = true;
+}
 

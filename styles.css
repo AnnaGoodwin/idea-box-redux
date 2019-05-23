@@ -75,6 +75,10 @@ button:hover:enabled {
   background-color: #D14119;
 }
 
+button:disabled {
+  background-color: #D1D2D4;
+}
+
 .title-input {
   border: none;
   height: 40px;
