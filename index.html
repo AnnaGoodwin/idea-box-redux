@@ -48,14 +48,14 @@
     <label for="title">
       Title
     </label>
-    <input class="title-input" type="text" name="title">
+    <input id="input-title" class="title-input" type="text" name="title">
     <label for="body">
       Body
     </label>
     <textarea name="body" id="text-body" cols="30" rows="10">
     </textarea>
     <div>
-    <button class="save-button" id="save-btn" >
+    <button disabled class="save-button" id="save-btn" >
       Save
     </button>
     <div class="search-container">
@@ -64,8 +64,8 @@
     </div>
   </form>
   </section>
-  <main>
-    <article id="idea-card">
+  <main id="card-populate">
+   <!--  <article id="idea-card">
       <header>
        <div class="star-container css-final-styles">
         <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
@@ -102,7 +102,7 @@
             <img src="Images/downvote-active.svg" class="active-button-downvote" id="active-down" alt="">
           </div>
       </footer>
-    </article> 
+    </article>  -->
   </main>
   <script type="text/javascript" src="idea2.js"></script>
   <script type="text/javascript" src="main.js"></script>
