@@ -15,7 +15,7 @@
     <h1 class="nav-text">
       IdeaBox Redux
     </h1>
-    <h2 class="nav-text">
+    <h2 class="nav-text-star">
       Filter Starred Ideas
     </h2>
     <button id="show-starred-btn" class="star-quality-btn">
@@ -34,9 +34,11 @@
       <button class="nav-button" id="genius-btn">
         Genius
       </button>
-      <label for="new-quality">
+      <label class="quality-label" for="new-quality">
         New Quality
       </label>
+      <input class="quality-input ss-final-styles" type="text" name="new-quality">
+      <button class="star-quality-btn">
       <input type="text" name="new-quality">
       <button id="add-quality" class="star-quality-btn nav-button">
         Add New Quality
@@ -73,6 +75,14 @@
   <main>
     <article>
       <header>
+       <div class="star-container css-final-styles">
+          <img src="Images/star.svg" alt="" class="inactive-button-star">
+          <img src="Images/star-active.svg" alt="" class="active-button-star">
+       </div>
+       <div class="delete-container">
+          <img src="Images/delete.svg" alt="" class="inactive-button-x">
+          <img src="Images/delete-active.svg" alt=""class="active-button-x">
+        </div>
         <img src="Images/star.svg" alt="" class="inactive-button" id="inactive-star">
         <img src="Images/star-active.svg" alt="" class="active-button" id="active-star">
         <img src="Images/delete.svg" alt="" class="inactive-button" id="inactive-delete">
@@ -89,14 +99,23 @@
         </span>
       </p>
       <footer>
+        <div class="upvote-container css-final-styles">
+          <img src="Images/upvote.svg" class="inactive-button-upvote" alt="">
+          <img src="Images/upvote-active.svg" class="active-button-upvote" alt="">
+        </div>
+        <p class="quality-text">
         <img src="Images/upvote.svg" class="inactive-button" id="inactive-up" alt="">
         <img src="Images/upvote-active.svg" class="active-button" id="active-up" alt="">
         <p>
           Quality:
-        </p>
           <span>
             Swill
           </span>
+        </p>
+          <div class="downvote-container">
+            <img src="Images/downvote.svg" class="inactive-button-downvote" alt="">
+            <img src="Images/downvote-active.svg" class="active-button-downvote" alt="">
+          </div>
           <img src="Images/downvote.svg" class="inactive-button" id="inactive-down" alt="">
           <img src="Images/downvote-active.svg" class="active-button" id="active-down" alt="">
       </footer>
