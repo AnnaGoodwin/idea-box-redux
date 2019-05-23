@@ -1,7 +1,7 @@
 /*body*/
 * {
   box-sizing: border-box;
-  border: solid 1px red;
+  /*border: solid 1px red;*/
 }
 
 body {
@@ -15,7 +15,7 @@ nav {
   background-color: #1F1F3D;
   float: left;
   height: 100vh;
-  width: 25%;
+  width: 20%;
 }
 
 .nav-quality {
@@ -23,11 +23,48 @@ nav {
   flex-direction: column;
 }
 
+.nav-text {
+  border-bottom: 2px solid #A9AAD2;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.nav-text-star {
+  color: #ffffff;
+  padding: 10px;
+}
+
+
 button {
   background-color: #1F1F3D;
   color: #ffffff;
   text-align: left;
   width: 100%;
+}
+
+.nav-button {
+  height: 30px;
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+}
+
+.star-quality-btn {
+  background-color: #5356A5;
+  height: 30px;
+  margin: 10px;
+  text-align: center;
+  width: 90%;
+}
+
+.quality-label {
+  margin-left: 10px;
+  color: white;
+}
+
+.quality-input {
+  height: 30px;
+  margin: 10px;
+  width: 90%;
 }
 
 button:hover:enabled {
@@ -77,7 +114,7 @@ form {
   display: flex;
   grid-column: 2;
   flex-direction: column;
-  width: 250px;
+  width: 350px;
   margin: 10px;
 }
 
@@ -92,8 +129,33 @@ main {
 
 /*article*/
 article {
+  background-color: white;
+  border: 2px solid;
+  height: 300px;
+  margin: 10px;
   width: 250px;
-  padding: 10px;
+}
+
+h4 {
+  margin: 10px;
+}
+
+header {
+  background-color: #1f1f3d;
+}
+
+#card{
+  height: 155px;
+  margin: 10px;
+}
+
+footer {
+  background-color: #A9AAD2;
+  display: flex;
+}
+
+.quality-text {
+  width: 100px;
 }
 
 .search-icon {
@@ -102,21 +164,50 @@ article {
   background-color: #1F1F3D;
 }
 
-.inactive-button {
+.active-button-star {
   height: 30px; 
   width: 30px;
 }
 
-.star-quality-btn {
-  text-align: center;
-}
 
-.nav-text {
-  color: #ffffff;
-}
-
-.active-button {
+.inactive-button-star {
   height: 30px; 
+  width: 30px;
+}
+
+.active-button-x {
+  height: 30px; 
+  float: right;
+  width: 30px;
+}
+
+.inactive-button-x {
+  height: 30px; 
+  float: right;
+  width: 30px;
+}
+
+.active-button-upvote {
+  height: 30px; 
+  float: left;
+  width: 30px;
+}
+
+.inactive-button-upvote {
+  height: 30px; 
+  float: left;
+  width: 30px;
+}
+
+.active-button-downvote {
+  height: 30px; 
+  float: right;
+  width: 30px;
+}
+
+.inactive-button-downvote {
+  height: 30px; 
+  float: right;
   width: 30px;
 }
 
