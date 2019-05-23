@@ -3,23 +3,26 @@
 <head>
   <link rel="sytlesheet" href="normalize.css">
   <link href="styles.css" type="text/css" rel="stylesheet" />
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap');
+</style> 
   <title>
     Idea Box
   </title>
 </head>
 <body>
   <nav>
-    <h1>
+    <h1 class="nav-text">
       IdeaBox Redux
     </h1>
-    <h2>
+    <h2 class="nav-text">
       Filter Starred Ideas
     </h2>
-    <button id="show-starred-btn">
+    <button id="show-starred-btn" class="star-quality-btn">
       Show Starred Ideas
     </button>
     <div class="nav-quality">
-      <h2>
+      <h2 class="nav-text">
         Filter by Quality
       </h2>
       <button class="nav-button" id="swill-btn">
@@ -35,16 +38,17 @@
         New Quality
       </label>
       <input type="text" name="new-quality">
-      <button class="nav-button" id="add-quality">
+      <button id="add-quality" class="star-quality-btn nav-button">
         Add New Quality
       </button>
     </div>
   </nav>
   <section>
+    <form>
     <label for="title">
       Title
     </label>
-    <input type="text" name="title">
+    <input class="title-input" type="text" name="title">
     <label for="body">
       Body
     </label>
@@ -57,7 +61,14 @@
     <div>
       <img src="Images/search.svg" class="search-icon" id="search-btn">
       <input type="search" placeholder="Search ideas">
+    <button class="save-button">
+      Save
+    </button>
+    <div class="search-container">
+      <img class="search-icon" src="Images/search.svg" class="search-icon">
+      <input class="search-input" type="search" placeholder="Search ideas">
     </div>
+  </form>
   </section>
   <main>
     <article>
