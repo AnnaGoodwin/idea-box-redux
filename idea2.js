@@ -6,6 +6,7 @@ class Idea {
     this.star = false;
     this.quality = 0;
   }
+
   saveToStorage(newIdeas) {
     var ideasArray = JSON.stringify(newIdeas)
     localStorage.setItem('ideas', ideasArray);
@@ -22,13 +23,15 @@ class Idea {
   updateQuality(newIdea) {
 
   }
-
+  
 
 }
 
 
 
-
+  removeFromStorage(newIdea) {
+    localStorage.removeitem('ideas', )
+  }
 
 // from main.js
   var newIdea = new Idea(input1.value, input2.value, Date.now())
