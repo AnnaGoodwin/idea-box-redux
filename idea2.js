@@ -9,11 +9,11 @@ class Idea {
 
   saveToStorage() {
     // var ideasArray = JSON.stringify(newIdeas)
-    localStorage.setItem(this.id, JSON.stringify(this));
+    localStorage.setItem('array', JSON.stringify(storageArray));
   }
   
   deleteFromStorage(newIdea) {
-    localStorage.removeItem('ideas', newIdea);
+    localStorage.removeItem(this.id, newIdea);
   }
 
   updateIdea(newIdea) {

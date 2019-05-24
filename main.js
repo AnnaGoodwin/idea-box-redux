@@ -17,7 +17,7 @@ var activeStr = document.querySelector('#active-star')
 
 var cardPopulator = document.getElementById('card-populate');
 // querySelectors inputs
-
+var storageArray = []
 // var newIdea = new Idea(titleInput.value, bodyInput.value, star, Date.now())
 // newIdea.saveToStorage(array)
 
@@ -40,16 +40,33 @@ saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
 
 function saveAll() {
-  var newIdea = new Idea(titleInput.value, bodyInput.value, Date.now(), )
-  console.log(newIdea)
-  newIdea.saveToStorage()
   populator();
   buttonToggle();
   clearFields();
+  createIdea();
+}
+function loadPopulation() {
+  for (var i = 0; i < storageArray.length; i++) {
+    populator(storageArray[i]);
+  }
+}
+//get array
+function arrayParse() {
+  var newArray = JSON.parse(localStorage.getItem('array')).map(function(arrayList){
+    return new Idea(arrayList.title, arrayList.body, arrayList.id, arrayList.star, arrayList.quality)
+  })
+  console.log(newArray)
+  storageArray = newArray;
 }
 
+function createIdea() {
+  var newIdea = new Idea(titleInput.value, bodyInput.value, Date.now(), false, 0);
+  storageArray.push(newIdea);
+  newIdea.saveToStorage();
+  console.log('hey')
+}
 
-function populator() {
+function populator(newArray) {
   event.preventDefault();
   cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card">
       <header>
@@ -64,12 +81,12 @@ function populator() {
       </header>
       <h4>
       <span id="idea-title">
-        ${titleInput.value}
+        ${newArray.title}
       </span>
       </h4>
       <p id="card">
         <span>
-        ${bodyInput.value}
+        ${newArray.body}
         </span>
       </p>
       <footer>
