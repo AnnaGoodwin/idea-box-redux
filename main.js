@@ -4,10 +4,7 @@
 // var plausibleBtn = document.querySelector('#plausible-btn')
 // var geniusBtn = document.querySelector('#genius-btn')
 // var addQuality = document.querySelector('#add-quality')
-var saveBtn = document.querySelector('#save-btn')
 // var searchBtn = document.querySelector('#search-btn')
-var inactiveStr = document.querySelector('#inactive-star')
-var activeStr = document.querySelector('#active-star')
 // var inactiveDlt = document.querySelector('#inactive-delete')
 // var activeDlt = document.querySelector('#active-delete')
 // var inactiveDwn = document.querySelector('#inactive-down')
@@ -15,17 +12,13 @@ var activeStr = document.querySelector('#active-star')
 // var inactiveUp = document.querySelector('#inactive-up')
 // var activeUp = document.querySelector('#active-up')
 
-var cardPopulator = document.getElementById('card-populate');
 // querySelectors inputs
-var storageArray = []
 // var newIdea = new Idea(titleInput.value, bodyInput.value, star, Date.now())
 // newIdea.saveToStorage(array)
 
 // function for inseerting values from inputs to cards
 
 //insertAdjacentHTML
-var titleInput = document.getElementById('input-title');
-var bodyInput = document.getElementById('text-body');
 
 //eventListeners
 // document.addEventListener('click', showStarred)
@@ -36,38 +29,47 @@ var bodyInput = document.getElementById('text-body');
 // document.addEventListener('click', saveBtn)
 // document.addEventListener('click', searchBtn)
 // document.addEventListener('keyup', )
+var storageArray = []
+var titleInput = document.getElementById('input-title');
+var bodyInput = document.getElementById('text-body');
+var cardPopulator = document.getElementById('card-populate');
+var activeStr = document.querySelector('#active-star')
+var inactiveStr = document.querySelector('#inactive-star')
+var saveBtn = document.querySelector('#save-btn')
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
 
 function saveAll() {
-  populator();
+  createIdea();
   buttonToggle();
   clearFields();
-  createIdea();
 }
+
+arrayParse()
+
+function createIdea() {
+  var newIdea = new Idea(titleInput.value, bodyInput.value, Date.now(), false, 0);
+  storageArray.push(newIdea);
+  newIdea.saveToStorage();
+  populator(newIdea);
+}
+
 function loadPopulation() {
   for (var i = 0; i < storageArray.length; i++) {
     populator(storageArray[i]);
   }
 }
-//get array
+
 function arrayParse() {
   var newArray = JSON.parse(localStorage.getItem('array')).map(function(arrayList){
     return new Idea(arrayList.title, arrayList.body, arrayList.id, arrayList.star, arrayList.quality)
   })
   console.log(newArray)
   storageArray = newArray;
+  loadPopulation()
 }
 
-function createIdea() {
-  var newIdea = new Idea(titleInput.value, bodyInput.value, Date.now(), false, 0);
-  storageArray.push(newIdea);
-  newIdea.saveToStorage();
-  console.log('hey')
-}
-
-function populator(newArray) {
-  event.preventDefault();
+function populator(obj) {
   cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card">
       <header>
        <div class="star-container css-final-styles">
@@ -81,12 +83,12 @@ function populator(newArray) {
       </header>
       <h4>
       <span id="idea-title">
-        ${newArray.title}
+        ${obj.title} 
       </span>
       </h4>
       <p id="card">
         <span>
-        ${newArray.body}
+        ${obj.body}
         </span>
       </p>
       <footer>
@@ -108,7 +110,8 @@ function populator(newArray) {
     </article> `)
 };
 
-function buttonToggle() {
+function buttonToggle(e) {
+  e.preventDefault();
   if(titleInput.value === '' || bodyInput.value === '') {
     saveBtn.disabled = true;
   } else {
