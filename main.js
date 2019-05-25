@@ -6,7 +6,6 @@
 // var addQuality = document.querySelector('#add-quality')
 // var searchBtn = document.querySelector('#search-btn')
 // var inactiveDlt = document.querySelector('#inactive-delete')
-// var activeDlt = document.querySelector('#active-delete')
 // var inactiveDwn = document.querySelector('#inactive-down')
 // var activeDwn = document.querySelector('#active-down')
 // var inactiveUp = document.querySelector('#inactive-up')
@@ -20,6 +19,7 @@
 
 //insertAdjacentHTML
 
+
 //eventListeners
 // document.addEventListener('click', showStarred)
 // document.addEventListener('click', swillBtn)
@@ -30,12 +30,18 @@
 // document.addEventListener('click', searchBtn)
 // document.addEventListener('keyup', )
 var storageArray = []
+var activeDlt = document.querySelector('#active-delete')
 var titleInput = document.getElementById('input-title');
 var bodyInput = document.getElementById('text-body');
 var cardPopulator = document.getElementById('card-populate');
 var activeStr = document.querySelector('#active-star')
 var inactiveStr = document.querySelector('#inactive-star')
 var saveBtn = document.querySelector('#save-btn')
+var mainContainer = document.querySelector('main');
+var cardInst = document.querySelector('#idea-card');
+// debugger;
+cardInst = document.querySelector('click', findId);
+mainContainer.addEventListener('click', findId);
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
 
@@ -70,7 +76,7 @@ function arrayParse() {
 }
 
 function populator(obj) {
-  cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card">
+  cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card" data-id= ${obj.id}>
       <header>
        <div class="star-container css-final-styles">
         <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
@@ -128,4 +134,27 @@ function clearFields() {
 function disableSaveButton() {
   saveBtn.disabled = true;
 }
+
+function findId(e) {
+ if (event.target.closest('#active-delete')) {
+  var askForId = event.target.closest('#idea-card').getAttribute('data-id')
+  // console.log('fun message', askForId)
+ }
+ deleteCard()
+ return askForId
+}
+
+// var cardIdentifier = findId()
+// console.log(cardIdentifier)
+
+function deleteCard() {
+   event.target.closest('#idea-card').remove();
+
+}
+
+
+  // var targetId = storageArray.find(function(Id){
+  //   return Id === Date.now()
+  // })
+
 
