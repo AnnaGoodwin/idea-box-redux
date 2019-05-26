@@ -30,18 +30,19 @@
 // document.addEventListener('click', searchBtn)
 // document.addEventListener('keyup', )
 var storageArray = []
-var activeDlt = document.querySelector('#active-delete')
+var deleteAct = document.querySelector('.delete-container');
 var titleInput = document.getElementById('input-title');
 var bodyInput = document.getElementById('text-body');
 var cardPopulator = document.getElementById('card-populate');
-var activeStr = document.querySelector('#active-star')
+var activeStr = document.querySelector('#active-star');
 var inactiveStr = document.querySelector('#inactive-star')
-var saveBtn = document.querySelector('#save-btn')
+var saveBtn = document.querySelector('#save-btn');
 var mainContainer = document.querySelector('main');
 var cardInst = document.querySelector('#idea-card');
 // debugger;
-cardInst = document.querySelector('click', findId);
-mainContainer.addEventListener('click', findId);
+mainContainer.addEventListener('click', deleteCard)
+mainContainer.addEventListener('click', getIndex)
+mainContainer.addEventListener('click', getId);
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
 
@@ -135,22 +136,99 @@ function disableSaveButton() {
   saveBtn.disabled = true;
 }
 
-function findId(e) {
- if (event.target.closest('#active-delete')) {
-  var askForId = event.target.closest('#idea-card').getAttribute('data-id')
-  // console.log('fun message', askForId)
- }
- deleteCard()
- return askForId
+function getId(e) {
+  // console.log('hey')
+ 
+    var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
+    var targetId = ideaId
+    // console.log(ideaId)
+    // console.log(targetId)
+    // console.log(e.target)
+  // indexId(e, targetId)
 }
+
+function getIndex(e) {
+  // console.log(targetId)
+  var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
+  console.log(ideaId)
+  var test = storageArray.findIndex(function(ideaObj){
+  return ideaObj.id == parseInt(ideaId)
+    });
+  return test
+  }
+
+function deleteCard(e) {
+  var id = getId(e);
+  var index = getIndex(e);
+  storageArray[index]
+  console.log(storageArray[index])
+  // var index = indexId(e);
+  // console.log('delet card')
+  // console.log(test2)
+  // var shitArray = storageArray.splice(array.length-1)
+
+
+
+  
+
+
+
+  // var updatedList = storageArray.filter(idea => {
+  //   if (arrayList.id === storageArray) {
+  //   }
+  // });
+  //   console.log(updatedList)
+  // console.log('Hello ', storageArray)
+
+ 
+
+
+
+
+  e.target.closest('#idea-card').remove();
+  }
+
+  // parse StorageArray
+  // var newIdeaList = JSON.parse(localStorage.getItem('array'))
+  // // console.log(newIdeaList)
+  // var updatedList = newIdeaList.filter(idea => {
+  //   console.log(updatedList)
+  //   return idea[0];
+  // })
+  // filter id.value take all values not equal to targetId return an array without targetId
+  // 
+  // stringify Array and saveToStorage
+  // populate new array
+
+
+  // storageArray.filter(function() { 
+  //   var newArray = JSON.parse(localStorage.getItem('array')).map(function(arrayList){
+  //     return new Ideas(arrayList.title, arrayList.body, arrayList.id, arrayList.star, arrayList.quality) !== targetId.id
+  //   });
+  // console.log(goodIdeas)
+  // });
+
+  
+  
+  
+  // getId().deleteFromStorage()
+
+//   if (event.target.closest('#active-delete')) {
+//   var askForId = event.target.closest('#idea-card').getAttribute('data-id')
+// }
+
+
+// function findId(e) {
+//  if (event.target.closest('#active-delete')) {
+//   var askForId = event.target.closest('#idea-card').getAttribute('data-id')
+//  }
+//  deleteCard()
+//  return askForId
+// }
 
 // var cardIdentifier = findId()
 // console.log(cardIdentifier)
 
-function deleteCard() {
-   event.target.closest('#idea-card').remove();
-
-}
 
 
   // var targetId = storageArray.find(function(Id){
