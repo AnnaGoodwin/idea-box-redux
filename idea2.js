@@ -13,7 +13,7 @@ class Idea {
   }
   
   deleteFromStorage(newIdea) {
-    localStorage.removeItem(this.id, newIdea);
+    localStorage.splice();
   }
 
   updateIdea(newIdea) {
