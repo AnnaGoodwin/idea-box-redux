@@ -169,8 +169,8 @@ function getIndex(e) {
 function deleteCard(e) {
   var id = getId(e);
   var index = getIndex(e);
-  storageArray[index]
-  console.log(storageArray[index])
+  storageArray[index].deleteFromStorage(index)
+  console.log(index)
   // var index = indexId(e);
   // console.log('delet card')
   // console.log(test2)
