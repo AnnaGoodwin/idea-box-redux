@@ -51,8 +51,8 @@ function saveAll() {
   buttonToggle();
   clearFields();
 }
-
-arrayParse()
+  ideaPrompter();
+  arrayParse();
 
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value, Date.now(), false, 0);
@@ -116,6 +116,15 @@ function populator(obj) {
       </footer>
     </article> `)
 };
+
+
+  function ideaPrompter() {
+   if(localStorage.length === 0) {
+    cardPopulator.insertAdjacentHTML('afterbegin', `<p class='prompt-idea'> Please have an idea! </p>`)
+    } else {
+    return
+    }
+  }
 
 function buttonToggle(e) {
   e.preventDefault();
