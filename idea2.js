@@ -15,6 +15,9 @@ class Idea {
   deleteFromStorage(index) {
     storageArray.splice(index, 1, );
     localStorage.setItem('array', JSON.stringify(storageArray));
+    if(storageArray.length === 0) {
+      localStorage.clear();
+    }
   }
 
   updateIdea(newIdea) {
