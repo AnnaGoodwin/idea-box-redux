@@ -140,6 +140,12 @@ main {
   grid-template-rows: 1fr 1fr;
 }
 
+.prompt-idea {
+  font-size: 25px;
+  grid-column-start: 2;
+  text-align: center;
+}
+
 /*article*/
 article {
   background-color: white;
