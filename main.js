@@ -119,11 +119,8 @@ function populator(obj) {
 
 
   function ideaPrompter() {
-   if(localStorage.length === 0) {
-    cardPopulator.insertAdjacentHTML('afterbegin', `<p class='prompt-idea'> Please have an idea! </p>`)
-    } else {
-    return
-    }
+   if(localStorage.length === 0 && storageArray.length === 0) {
+    cardPopulator.insertAdjacentHTML('afterbegin', `<p class='prompt-idea'> Please have an idea! </p>`)}
   }
 
 function buttonToggle(e) {
@@ -195,6 +192,7 @@ function deleteCard(e) {
 
 
   e.target.closest('#idea-card').remove();
+  ideaPrompter();
   }
 
   // parse StorageArray
