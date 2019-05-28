@@ -171,36 +171,14 @@ function getIndex(e) {
   }
 
 function deleteCard(e) {
+  if(e.target.className === 'inactive-button-x') {
   var id = getId(e);
   var index = getIndex(e);
-  storageArray[index].deleteFromStorage(index)
   console.log(index)
-  // var index = indexId(e);
-  // console.log('delet card')
-  // console.log(test2)
-  // var shitArray = storageArray.splice(array.length-1)
-
-
-
-// conditional of if target.class name === delete-container run function
-
-  
-
-
-
-  // var updatedList = storageArray.filter(idea => {
-  //   if (arrayList.id === storageArray) {
-  //   }
-  // });
-  //   console.log(updatedList)
-  // console.log('Hello ', storageArray)
-
- 
-
-
-  // e.target.closest('#delete-box').remove('#idea-card')
+  storageArray[index].deleteFromStorage(index)
   e.target.closest('#idea-card').remove();
   ideaPrompter();
+    }
   }
 
   // parse StorageArray
