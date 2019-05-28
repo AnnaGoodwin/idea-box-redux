@@ -30,16 +30,17 @@
 // document.addEventListener('click', searchBtn)
 // document.addEventListener('keyup', )
 var storageArray = []
-var deleteAct = document.querySelector('.delete-container');
+var mainContainer = document.querySelector('#card-populate');
+// var deleteAct = document.querySelector('.delete-container');
 var titleInput = document.getElementById('input-title');
 var bodyInput = document.getElementById('text-body');
 var cardPopulator = document.getElementById('card-populate');
 var activeStr = document.querySelector('#active-star');
 var inactiveStr = document.querySelector('#inactive-star')
 var saveBtn = document.querySelector('#save-btn');
-var mainContainer = document.querySelector('main');
 var cardInst = document.querySelector('#idea-card');
-// debugger;
+
+
 mainContainer.addEventListener('click', deleteCard)
 mainContainer.addEventListener('click', getIndex)
 mainContainer.addEventListener('click', getId);
@@ -119,8 +120,11 @@ function populator(obj) {
 
 
   function ideaPrompter() {
-   if(localStorage.length === 0 && storageArray.length === 0) {
-    cardPopulator.insertAdjacentHTML('afterbegin', `<p class='prompt-idea'> Please have an idea! </p>`)}
+   if(storageArray.length === 0) {
+    cardPopulator.insertAdjacentHTML('afterbegin', `<p class='prompt-idea'> Please have an idea! </p>`)
+    } else {
+    return
+    }
   }
 
 function buttonToggle(e) {
@@ -143,18 +147,15 @@ function disableSaveButton() {
 }
 
 function getId(e) {
-  // console.log('hey')
- 
+  // console.log(e.target)
     var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
     var targetId = ideaId
     // console.log(ideaId)
     // console.log(targetId)
     // console.log(e.target)
-  // indexId(e, targetId)
 }
 
 function getIndex(e) {
-  // console.log(targetId)
   var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
   console.log(ideaId)
   var test = storageArray.findIndex(function(ideaObj){
@@ -167,7 +168,9 @@ function deleteCard(e) {
   var id = getId(e);
   var index = getIndex(e);
   storageArray[index].deleteFromStorage(index)
-  console.log(index)
+  // console.log(index)
+  e.target.closest('#idea-card').remove();
+  }
   // var index = indexId(e);
   // console.log('delet card')
   // console.log(test2)
@@ -190,10 +193,6 @@ function deleteCard(e) {
 
 
 
-
-  e.target.closest('#idea-card').remove();
-  ideaPrompter();
-  }
 
   // parse StorageArray
   // var newIdeaList = JSON.parse(localStorage.getItem('array'))
