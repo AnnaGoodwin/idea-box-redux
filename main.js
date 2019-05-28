@@ -39,20 +39,23 @@ var inactiveStr = document.querySelector('#inactive-star')
 var saveBtn = document.querySelector('#save-btn');
 var mainContainer = document.querySelector('main');
 var cardInst = document.querySelector('#idea-card');
+var removeContainer = document.querySelector('#delete-box')
 // debugger;
 mainContainer.addEventListener('click', deleteCard)
 mainContainer.addEventListener('click', getIndex)
 mainContainer.addEventListener('click', getId);
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
+// removeContainer.addEventListener('click', deleteCard);
+
 
 function saveAll() {
   createIdea();
   buttonToggle();
   clearFields();
 }
-  ideaPrompter();
   arrayParse();
+  ideaPrompter();
 
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value, Date.now(), false, 0);
@@ -68,12 +71,16 @@ function loadPopulation() {
 }
 
 function arrayParse() {
+  if(localStorage.length === 0){
+    return
+  } else {
   var newArray = JSON.parse(localStorage.getItem('array')).map(function(arrayList){
     return new Idea(arrayList.title, arrayList.body, arrayList.id, arrayList.star, arrayList.quality)
   })
   console.log(newArray)
   storageArray = newArray;
   loadPopulation()
+  }
 }
 
 function populator(obj) {
@@ -83,7 +90,7 @@ function populator(obj) {
         <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
         <img src="Images/star-active.svg" alt="" class="active-button-star" id="active-star">
        </div>
-       <div class="delete-container">
+       <div id="delete-box" class="delete-container">
           <img src="Images/delete.svg" alt="" class="inactive-button-x" id="inactive-delete">
           <img src="Images/delete-active.svg" alt=""class="active-button-x" id="active-delete">
         </div>
@@ -175,6 +182,8 @@ function deleteCard(e) {
 
 
 
+// conditional of if target.class name === delete-container run function
+
   
 
 
@@ -189,8 +198,7 @@ function deleteCard(e) {
  
 
 
-
-
+  // e.target.closest('#delete-box').remove('#idea-card')
   e.target.closest('#idea-card').remove();
   ideaPrompter();
   }
