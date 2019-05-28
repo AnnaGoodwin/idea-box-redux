@@ -41,13 +41,17 @@ var mainContainer = document.querySelector('main');
 var cardInst = document.querySelector('#idea-card');
 var removeContainer = document.querySelector('#delete-box')
 // debugger;
-mainContainer.addEventListener('click', deleteCard)
-mainContainer.addEventListener('click', getIndex)
-mainContainer.addEventListener('click', getId);
+mainContainer.addEventListener('click', mainContainerFunctionality);
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
 // removeContainer.addEventListener('click', deleteCard);
 
+function mainContainerFunctionality() {
+  getId(e);
+  getIndex();
+  updateStar(e);
+  deleteCard();
+}
 
 function saveAll() {
   createIdea();
@@ -181,51 +185,36 @@ function deleteCard(e) {
     }
   }
 
-  // parse StorageArray
-  // var newIdeaList = JSON.parse(localStorage.getItem('array'))
-  // // console.log(newIdeaList)
-  // var updatedList = newIdeaList.filter(idea => {
-  //   console.log(updatedList)
-  //   return idea[0];
-  // })
-  // filter id.value take all values not equal to targetId return an array without targetId
-  // 
-  // stringify Array and saveToStorage
-  // populate new array
+function updateStar(e) {
+  if(e.target.closest('inactive-button-star')){
+    var id = getId(e);
+    var index = getIndex(e);
+    var activeStar = 'Images/star-active.svg';
+    var inactiveStar = 'Images/star.svg';
+    var transition = document.querySelector(`#idea-card[data-id=${id}] #inactive-button-star`);
+    transition.src = activeStar;
+    if(storageArray[index].star === false) {
+      transiton.src = inactiveStar;
+    } else {
+      transition = activeStar;
+    }
+  }
+}
 
-
-  // storageArray.filter(function() { 
-  //   var newArray = JSON.parse(localStorage.getItem('array')).map(function(arrayList){
-  //     return new Ideas(arrayList.title, arrayList.body, arrayList.id, arrayList.star, arrayList.quality) !== targetId.id
-  //   });
-  // console.log(goodIdeas)
-  // });
-
-  
-  
-  
-  // getId().deleteFromStorage()
-
-//   if (event.target.closest('#active-delete')) {
-//   var askForId = event.target.closest('#idea-card').getAttribute('data-id')
+//  function updateStarBtn(event) {
+//   if (event.target.closest('#white-star-img')) {  
+//   var cardId = getUniqueId(event);
+//   var cardIndex = getCardIndex(cardId);
+//   var yellowStar = 'images/star-active.svg'; 
+//   var oldStar = document.querySelector(`.card[data-id="${cardId}"] #white-star-img`);
+//   oldStar.src = yellowStar
+//   ideas[cardIndex].updateStar();
+//   if (ideas[cardIndex].star === false) {
+//     var whiteStar = 'images/star.svg'
+//     oldStar.src = whiteStar;
+//     } else {
+//       oldStar.src = yellowStar;
+//     }
+//   }
 // }
-
-
-// function findId(e) {
-//  if (event.target.closest('#active-delete')) {
-//   var askForId = event.target.closest('#idea-card').getAttribute('data-id')
-//  }
-//  deleteCard()
-//  return askForId
-// }
-
-// var cardIdentifier = findId()
-// console.log(cardIdentifier)
-
-
-
-  // var targetId = storageArray.find(function(Id){
-  //   return Id === Date.now()
-  // })
-
 
