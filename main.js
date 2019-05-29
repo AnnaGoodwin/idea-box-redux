@@ -39,7 +39,6 @@ var inactiveStr = document.querySelector('#inactive-star')
 var saveBtn = document.querySelector('#save-btn');
 var mainContainer = document.querySelector('main');
 var cardInst = document.querySelector('#idea-card');
-var removeContainer = document.querySelector('#delete-box')
 // debugger;
 mainContainer.addEventListener('click', mainContainerFunctionality);
 saveBtn.addEventListener('click', saveAll);
@@ -90,36 +89,23 @@ function arrayParse() {
 function populator(obj) {
   cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card" data-id= ${obj.id}>
       <header>
-       <div class="star-container css-final-styles">
+       <div>
         <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
         <img src="Images/star-active.svg" alt="" class="active-button-star" id="active-star">
        </div>
-       <div id="delete-box" class="delete-container">
+       <div class="delete-container">
           <img src="Images/delete.svg" alt="" class="inactive-button-x" id="inactive-delete">
           <img src="Images/delete-active.svg" alt=""class="active-button-x" id="active-delete">
         </div>
       </header>
-      <h4>
-      <span id="idea-title">
-        ${obj.title} 
-      </span>
-      </h4>
-      <p id="card">
-        <span>
-        ${obj.body}
-        </span>
-      </p>
+      <h4> <span id="idea-title"> ${obj.title} </span> </h4>
+      <p id="card"> <span> ${obj.body} </span> </p>
       <footer>
-        <div class="upvote-container css-final-styles">
+        <div>
           <img src="Images/upvote.svg" class="inactive-button-upvote" id="inactive-up" alt="">
           <img src="Images/upvote-active.svg" class="active-button-upvote" id="active-up" alt="">
-        </div>
-        <p class="quality-text">
-          Quality:
-          <span>
-            Swill
-          </span>
-        </p>
+        </div> 
+        <p> Quality: <span> Swill </span> </p>
           <div class="downvote-container">
             <img src="Images/downvote.svg" class="inactive-button-downvote" id="inactive-down" alt="">
             <img src="Images/downvote-active.svg" class="active-button-downvote" id="active-down" alt="">
