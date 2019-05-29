@@ -4,67 +4,41 @@
   <link rel="sytlesheet" href="normalize.css">
   <link href="styles.css" type="text/css" rel="stylesheet" />
   <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap');
-</style> 
-  <title>
-    Idea Box
-  </title>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap');
+  </style> 
+  <title> Idea Box </title>
 </head>
 <body>
   <nav>
-    <h1 class="nav-text">
-      IdeaBox Redux
-    </h1>
-    <h2 class="nav-text-star">
-      Filter Starred Ideas
-    </h2>
-    <button id="show-starred-btn" class="star-quality-btn">
-      Show Starred Ideas
-    </button>
+    <h1 class="nav-text"> IdeaBox Redux </h1>
+    <h2 class="nav-text-star"> Filter Starred Ideas </h2>
+    <button class="star-quality-btn"> Show Starred Ideas </button>
     <div class="nav-quality">
-      <h2 class="nav-text">
-        Filter by Quality
-      </h2>
-      <button class="nav-button" id="swill-btn">
-        Swill
-      </button>
-      <button class="nav-button" id="plausible-btn">
-        Plausible
-      </button>
-      <button class="nav-button" id="genius-btn">
-        Genius
-      </button>
-      <label class="quality-label" for="new-quality">
-        New Quality
-      </label>
-      <input class="quality-input ss-final-styles" type="text" name="new-quality">
-      <button id="add-quality" class="star-quality-btn nav-button">
-        Add New Quality
-      </button>
+      <h2 class="nav-text"> Filter by Quality </h2>
+      <button class="nav-button"> Swill </button>
+      <button class="nav-button"> Plausible </button>
+      <button class="nav-button"> Genius </button>
+      <label class="quality-label" for="new-quality"> New Quality </label>
+      <input class="quality-input" type="text" name="new-quality">
+      <button class="star-quality-btn nav-button"> Add New Quality </button>
     </div>
   </nav>
-  <section>
-    <form>
-    <label for="title">
-      Title
-    </label>
-    <input id="input-title" class="title-input" type="text" name="title">
-    <label for="body">
-      Body
-    </label>
-    <textarea name="body" id="text-body" cols="30" rows="10"></textarea>
-    <div>
-    <button disabled class="save-button" id="save-btn" >
-      Save
-    </button>
-    <div class="search-container">
-      <img class="search-icon" src="Images/search.svg" id="search-btn">
-      <input class="search-input" type="search" placeholder="Search ideas">
-    </div>
-  </form>
-  </section>
-  <main id="card-populate">
-  </main>
+  <div class="full-container">
+    <section>
+      <form>
+        <label for="title"> Title </label>
+        <input id="input-title" class="title-input" type="text" name="title">
+        <label for="body"> Body </label>
+        <textarea id="text-body" name="body" cols="30" rows="10"> </textarea>
+        <button disabled id="save-btn" class="save-button" > Save </button>
+      <div class="search-container">
+        <img class="search-icon" src="Images/search.svg" id="search-btn">
+        <input class="search-input" type="search" placeholder="Search ideas">
+      </div>
+      </form>
+    </section>
+    <main id="card-populate"></main>
+  </div>
   <script type="text/javascript" src="idea2.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </body>
