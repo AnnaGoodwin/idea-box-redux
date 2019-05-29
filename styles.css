@@ -137,9 +137,10 @@ form {
 main {
   background-color: #EAEAF4;
   display: grid;
-  height: auto;
+  min-height: 100vh;
+  height: 100%;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .prompt-idea {
@@ -216,4 +217,21 @@ footer {
 
 .quality-information {
   margin: none;
+}
+
+/*media query*/
+
+@media screen and (max-width: 850px) {
+
+  main {
+    display: block;
+    float: right;
+    width: 645px;
+  }
+
+  article {
+    display: block;
+    margin: 0px;
+    width: 100%;
+  }
 }

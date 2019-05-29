@@ -33,7 +33,7 @@ class Idea {
 
   
   updateContent() {
-    
+    this.star = true;
   }
 }
 

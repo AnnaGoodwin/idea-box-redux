@@ -220,22 +220,24 @@ function deleteCard(e) {
   ideaPrompter();
     }
   }
-//  function updateStarBtn(event) {
-//   if (event.target.closest('#white-star-img')) {  
-//   var cardId = getUniqueId(event);
-//   var cardIndex = getCardIndex(cardId);
-//   var yellowStar = 'images/star-active.svg'; 
-//   var oldStar = document.querySelector(`.card[data-id="${cardId}"] #white-star-img`);
-//   oldStar.src = yellowStar
-//   ideas[cardIndex].updateStar();
-//   if (ideas[cardIndex].star === false) {
-//     var whiteStar = 'images/star.svg'
-//     oldStar.src = whiteStar;
-//     } else {
-//       oldStar.src = yellowStar;
-//     }
-//   }
-// }
+
+ function updateStarBtn(event) {
+  if (event.target.closest('#white-star-img')) {  
+  var cardId = getUniqueId(event);
+  var cardIndex = getCardIndex(cardId);
+  var yellowStar = 'images/star-active.svg'; 
+  var oldStar = document.querySelector(`.card[data-id="${cardId}"] #white-star-img`);
+  
+  oldStar.src = yellowStar
+  ideas[cardIndex].updateStar();
+  if (ideas[cardIndex].star === false) {
+    var whiteStar = 'images/star.svg'
+    oldStar.src = whiteStar;
+    } else {
+      oldStar.src = yellowStar;
+    }
+  }
+}
 
 function editIdea(e) {
   var id = getId(e);
