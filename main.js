@@ -30,18 +30,30 @@
 // document.addEventListener('click', searchBtn)
 // document.addEventListener('keyup', )
 var storageArray = []
-var mainContainer = document.querySelector('#card-populate');
-// var deleteAct = document.querySelector('.delete-container');
-var titleInput = document.getElementById('input-title');
-var bodyInput = document.getElementById('text-body');
-var cardPopulator = document.getElementById('card-populate');
-var activeStr = document.querySelector('#active-star');
-var inactiveStr = document.querySelector('#inactive-star')
-var saveBtn = document.querySelector('#save-btn');
-var cardInst = document.querySelector('#idea-card');
-var removeContainer = document.querySelector('#delete-box')
-// debugger;
 
+var mainContainer = document.querySelector('#card-populate');
+
+var titleInput = document.getElementById('input-title');
+
+var bodyInput = document.getElementById('text-body');
+
+var cardPopulator = document.getElementById('card-populate');
+
+var activeStr = document.querySelector('#active-star');
+
+var inactiveStr = document.querySelector('#inactive-star')
+
+var saveBtn = document.querySelector('#save-btn');
+
+var cardInst = document.querySelector('#idea-card');
+
+var removeContainer = document.querySelector('#delete-box')
+
+// var cardTitle = document.querySelector('#card-body')
+
+// var cardBody = document.querySelector('#idea-title')
+// debugger;
+mainContainer.addEventListener('focusout', editIdea)
 mainContainer.addEventListener('click', deleteCard)
 mainContainer.addEventListener('click', getIndex)
 mainContainer.addEventListener('click', getId);
@@ -85,7 +97,7 @@ function arrayParse() {
 }
 
 function populator(obj) {
-  cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card" data-id= ${obj.id}>
+  cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card" class="card-idea" data-id= ${obj.id}>
       <header>
        <div class="star-container css-final-styles">
         <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
@@ -102,7 +114,7 @@ function populator(obj) {
       </span>
       </h4>
       <p id="card">
-        <textarea class="card-body" contenteditable= "true">
+        <textarea id="card-body" contenteditable= "true">
         ${obj.body}
         </textarea>
       </p>
@@ -154,9 +166,9 @@ function disableSaveButton() {
 }
 
 function getId(e) {
+  var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
+  var targetId = ideaId
   // console.log(e.target)
-    var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
-    var targetId = ideaId
     // console.log(ideaId)
     // console.log(targetId)
     // console.log(e.target)
@@ -181,17 +193,20 @@ function deleteCard(e) {
     }
   }
 
-function editIdea(event) {
+function editIdea(e) {
   var id = getId(e);
-  var index = getIndex(cardId);
-  var editedTitle = document.querySelector(`.card[data-id="${cardId}"] #idea-title-output`).innerText;
-  var editedBody = document.querySelector(`.card[data-id="${cardId}"] #idea-body-output`).innerText;
-  ideas[cardIndex].updateIdea(newTitle, newBody);
-  var focusTitle = document.querySelector(`.card[data-id="${cardId}"] #idea-title-output`).blur();
-  var focusBody = document.querySelector(`.card[data-id="${cardId}"] #idea-body-output`).blur();
+  var index = getIndex(e);
+
+  var editedTitle = document.querySelector(`#idea-card[data-id="${id}"] 
+    #idea-title`).innerText;
+  console.log(index)
+  var editedBody = document.querySelector(`#idea-card[data-id="${id}"] #card-body`).innerText;
+  ideas[index].updateIdea(editTitle, editedBody);
+  var focusTitle = document.querySelector(`#idea-card[data-id="${id}"] #idea-title`).blur();
+  var focusBody = document.querySelector(`#idea-card[data-id="${id}"] #card-body`).blur();
 }
 
-function keyEnterUpdare(event) {
+function keyCodeUpdate(event) {
   var key = event.keyCode
   if (key === 13) {
       event.preventDefault();

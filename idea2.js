@@ -21,12 +21,16 @@ class Idea {
   }
 
   updateIdea(newIdea) {
-
+    this.title = title;
+    this.body = body;
+    this.saveToStorage(newIdea);
   }
 
   updateQuality(newIdea) {
 
   }
+
+
   
 
 }
