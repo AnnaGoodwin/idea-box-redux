@@ -30,20 +30,38 @@
 // document.addEventListener('click', searchBtn)
 // document.addEventListener('keyup', )
 var storageArray = []
-var deleteAct = document.querySelector('.delete-container');
+
+var mainContainer = document.querySelector('#card-populate');
+
 var titleInput = document.getElementById('input-title');
+
 var bodyInput = document.getElementById('text-body');
+
 var cardPopulator = document.getElementById('card-populate');
+
 var activeStr = document.querySelector('#active-star');
+
 var inactiveStr = document.querySelector('#inactive-star')
+
 var saveBtn = document.querySelector('#save-btn');
-var mainContainer = document.querySelector('main');
+
 var cardInst = document.querySelector('#idea-card');
-// debugger;
+
+var removeContainer = document.querySelector('#delete-box')
+
+// var cardTitle = document.querySelector('#card-body')
+
+// var cardBody = document.querySelector('#idea-title')
+
 mainContainer.addEventListener('click', mainContainerFunctionality);
+mainContainer.addEventListener('focusout', editIdea)
+mainContainer.addEventListener('click', deleteCard)
+mainContainer.addEventListener('click', getIndex)
+mainContainer.addEventListener('click', getId);
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
 // removeContainer.addEventListener('click', deleteCard);
+
 
 function mainContainerFunctionality() {
   getId(e);
@@ -87,28 +105,26 @@ function arrayParse() {
 }
 
 function populator(obj) {
-  cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card" data-id= ${obj.id}>
+  cardPopulator.insertAdjacentHTML('afterbegin', ` <article id="idea-card" class="card-idea" data-id= ${obj.id}>
       <header>
        <div>
         <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
-        <img src="Images/star-active.svg" alt="" class="active-button-star" id="active-star">
        </div>
-       <div class="delete-container">
+       <div id="delete-box" class="delete-container">
           <img src="Images/delete.svg" alt="" class="inactive-button-x" id="inactive-delete">
-          <img src="Images/delete-active.svg" alt=""class="active-button-x" id="active-delete">
         </div>
       </header>
-      <h4> <span id="idea-title"> ${obj.title} </span> </h4>
-      <p id="card"> <span> ${obj.body} </span> </p>
+      <h4> <span id="idea-title" contenteditable= "true"> ${obj.title} </span> </h4>
+      <p id="card">
+        <textarea id="card-body" contenteditable= "true"> ${obj.body} </textarea>
+      </p>
       <footer>
         <div>
           <img src="Images/upvote.svg" class="inactive-button-upvote" id="inactive-up" alt="">
-          <img src="Images/upvote-active.svg" class="active-button-upvote" id="active-up" alt="">
         </div> 
         <p> Quality: <span> Swill </span> </p>
           <div class="downvote-container">
             <img src="Images/downvote.svg" class="inactive-button-downvote" id="inactive-down" alt="">
-            <img src="Images/downvote-active.svg" class="active-button-downvote" id="active-down" alt="">
           </div>
       </footer>
     </article> `)
@@ -116,8 +132,11 @@ function populator(obj) {
 
 
   function ideaPrompter() {
-   if(localStorage.length === 0 && storageArray.length === 0) {
-    cardPopulator.insertAdjacentHTML('afterbegin', `<p class='prompt-idea'> Please have an idea! </p>`)}
+   if(storageArray.length === 0) {
+    cardPopulator.insertAdjacentHTML('afterbegin', `<p class='prompt-idea'> Please have an idea! </p>`)
+    } else {
+    return
+    }
   }
 
 function buttonToggle(e) {
@@ -140,14 +159,12 @@ function disableSaveButton() {
 }
 
 function getId(e) {
-  // console.log('hey')
- 
-    var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
-    var targetId = ideaId
+  var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
+  var targetId = ideaId
+  // console.log(e.target)
     // console.log(ideaId)
     // console.log(targetId)
     // console.log(e.target)
-  // indexId(e, targetId)
 }
 
 // function getIndex(e) {
@@ -185,10 +202,24 @@ function getId(e) {
 //       transition = activeStar;
 //     }
 //   }
-// }
+function getIndex(e) {
+  var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
+  console.log(ideaId)
+  var test = storageArray.findIndex(function(ideaObj){
+  return ideaObj.id == parseInt(ideaId)
+    });
+  return test
+  }
 
-
-
+function deleteCard(e) {
+  if(e.target.className === 'inactive-button-x') {
+  var id = getId(e);
+  var index = getIndex(e);
+  e.target.closest('#idea-card').remove();
+  storageArray[index].deleteFromStorage(index)
+  ideaPrompter();
+    }
+  }
 //  function updateStarBtn(event) {
 //   if (event.target.closest('#white-star-img')) {  
 //   var cardId = getUniqueId(event);
@@ -205,4 +236,27 @@ function getId(e) {
 //     }
 //   }
 // }
+
+function editIdea(e) {
+  var id = getId(e);
+  var index = getIndex(e);
+
+  var editedTitle = document.querySelector(`#idea-card[data-id="${id}"] 
+    #idea-title`).innerText;
+  console.log(index)
+  var editedBody = document.querySelector(`#idea-card[data-id="${id}"] #card-body`).innerText;
+  ideas[index].updateIdea(editTitle, editedBody);
+  var focusTitle = document.querySelector(`#idea-card[data-id="${id}"] #idea-title`).blur();
+  var focusBody = document.querySelector(`#idea-card[data-id="${id}"] #card-body`).blur();
+}
+
+function keyCodeUpdate(event) {
+  var key = event.keyCode
+  if (key === 13) {
+      event.preventDefault();
+      editIdea(event);
+  }
+ } 
+
+
 
