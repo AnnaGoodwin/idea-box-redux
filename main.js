@@ -39,21 +39,24 @@ var activeStr = document.querySelector('#active-star');
 var inactiveStr = document.querySelector('#inactive-star')
 var saveBtn = document.querySelector('#save-btn');
 var cardInst = document.querySelector('#idea-card');
-
+var removeContainer = document.querySelector('#delete-box')
+// debugger;
 
 mainContainer.addEventListener('click', deleteCard)
 mainContainer.addEventListener('click', getIndex)
 mainContainer.addEventListener('click', getId);
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
+// removeContainer.addEventListener('click', deleteCard);
+
 
 function saveAll() {
   createIdea();
   buttonToggle();
   clearFields();
 }
-  ideaPrompter();
   arrayParse();
+  ideaPrompter();
 
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value, Date.now(), false, 0);
@@ -69,12 +72,16 @@ function loadPopulation() {
 }
 
 function arrayParse() {
+  if(localStorage.length === 0){
+    return
+  } else {
   var newArray = JSON.parse(localStorage.getItem('array')).map(function(arrayList){
     return new Idea(arrayList.title, arrayList.body, arrayList.id, arrayList.star, arrayList.quality)
   })
   console.log(newArray)
   storageArray = newArray;
   loadPopulation()
+  }
 }
 
 function populator(obj) {
@@ -84,20 +91,20 @@ function populator(obj) {
         <img src="Images/star.svg" alt="" class="inactive-button-star" id="inactive-star">
         <img src="Images/star-active.svg" alt="" class="active-button-star" id="active-star">
        </div>
-       <div class="delete-container">
+       <div id="delete-box" class="delete-container">
           <img src="Images/delete.svg" alt="" class="inactive-button-x" id="inactive-delete">
           <img src="Images/delete-active.svg" alt=""class="active-button-x" id="active-delete">
         </div>
       </header>
       <h4>
-      <span id="idea-title">
+      <span id="idea-title" contenteditable= "true">
         ${obj.title} 
       </span>
       </h4>
       <p id="card">
-        <span>
+        <textarea class="card-body" contenteditable= "true">
         ${obj.body}
-        </span>
+        </textarea>
       </p>
       <footer>
         <div class="upvote-container css-final-styles">
@@ -165,12 +172,40 @@ function getIndex(e) {
   }
 
 function deleteCard(e) {
+  if(e.target.className === 'inactive-button-x') {
   var id = getId(e);
   var index = getIndex(e);
-  storageArray[index].deleteFromStorage(index)
-  // console.log(index)
   e.target.closest('#idea-card').remove();
+  storageArray[index].deleteFromStorage(index)
+  ideaPrompter();
+    }
   }
+
+function editIdea(event) {
+  var id = getId(e);
+  var index = getIndex(cardId);
+  var editedTitle = document.querySelector(`.card[data-id="${cardId}"] #idea-title-output`).innerText;
+  var editedBody = document.querySelector(`.card[data-id="${cardId}"] #idea-body-output`).innerText;
+  ideas[cardIndex].updateIdea(newTitle, newBody);
+  var focusTitle = document.querySelector(`.card[data-id="${cardId}"] #idea-title-output`).blur();
+  var focusBody = document.querySelector(`.card[data-id="${cardId}"] #idea-body-output`).blur();
+}
+
+function keyEnterUpdare(event) {
+  var key = event.keyCode
+  if (key === 13) {
+      event.preventDefault();
+      editIdea(event);
+  }
+ } 
+
+
+
+
+
+
+
+
   // var index = indexId(e);
   // console.log('delet card')
   // console.log(test2)
@@ -190,6 +225,7 @@ function deleteCard(e) {
   // console.log('Hello ', storageArray)
 
  
+
 
 
 
