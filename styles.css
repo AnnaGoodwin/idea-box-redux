@@ -6,9 +6,9 @@
 
 body {
   background-color: #1F1E3D;
-  height: 100vh;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+  height: 100vh;
   margin: 0;
 }
 
@@ -62,8 +62,8 @@ button {
 }
 
 .quality-label {
-  margin-left: 10px;
   color: white;
+  margin-left: 10px;
 }
 
 .quality-input {
@@ -87,8 +87,8 @@ button:disabled {
 }
 
 .save-button {
-  border: none;
   background-color: #1F1F3D;
+  border: none;
   color: #ffffff;
   font-size: 15px;
   height: 40px;
@@ -127,16 +127,15 @@ section {
 
 form {
   display: flex;
-  grid-column: 2;
   flex-direction: column;
-  width: 500px;
+  grid-column: 2;
   margin: 10px;
+  width: 500px;
 }
 
 /*main*/
 main {
   background-color: #EAEAF4;
-  display: flex;
   display: grid;
   height: auto;
   grid-template-columns: 1fr 1fr 1fr;
@@ -174,9 +173,9 @@ header {
 
 #card-body{
   height: 180px;
-  width: 90%;
   margin: 15px;
   padding: 5px;
+  width: 90%;
 }
 
 footer {
@@ -217,8 +216,4 @@ footer {
 
 .quality-information {
   margin: none;
-}
-
-.full-container {
-  
 }
