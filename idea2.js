@@ -28,7 +28,9 @@ class Idea {
 
   }
   
-
+  updateContent() {
+    
+  }
 }
 
 

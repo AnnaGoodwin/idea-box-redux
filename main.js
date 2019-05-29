@@ -48,7 +48,7 @@ bodyInput.addEventListener('keyup', buttonToggle);
 function mainContainerFunctionality() {
   getId(e);
   getIndex();
-  updateStar(e);
+  updateStar(e, id);
   deleteCard();
 }
 
@@ -150,42 +150,44 @@ function getId(e) {
   // indexId(e, targetId)
 }
 
-function getIndex(e) {
-  // console.log(targetId)
-  var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
-  console.log(ideaId)
-  var test = storageArray.findIndex(function(ideaObj){
-  return ideaObj.id == parseInt(ideaId)
-    });
-  return test
-  }
+// function getIndex(e) {
+//   // console.log(targetId)
+//   var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
+//   console.log(ideaId)
+//   var test = storageArray.findIndex(function(ideaObj){
+//   return ideaObj.id == parseInt(ideaId)
+//     });
+//   return test
+//   }
 
-function deleteCard(e) {
-  if(e.target.className === 'inactive-button-x') {
-  var id = getId(e);
-  var index = getIndex(e);
-  console.log(index)
-  storageArray[index].deleteFromStorage(index)
-  e.target.closest('#idea-card').remove();
-  ideaPrompter();
-    }
-  }
+// function deleteCard(e) {
+//   if(e.target.className === 'inactive-button-x') {
+//   var id = getId(e);
+//   var index = getIndex(e);
+//   console.log(index)
+//   storageArray[index].deleteFromStorage(index)
+//   e.target.closest('#idea-card').remove();
+//   ideaPrompter();
+//     }
+//   }
 
-function updateStar(e) {
-  if(e.target.closest('inactive-button-star')){
-    var id = getId(e);
-    var index = getIndex(e);
-    var activeStar = 'Images/star-active.svg';
-    var inactiveStar = 'Images/star.svg';
-    var transition = document.querySelector(`#idea-card[data-id=${id}] #inactive-button-star`);
-    transition.src = activeStar;
-    if(storageArray[index].star === false) {
-      transiton.src = inactiveStar;
-    } else {
-      transition = activeStar;
-    }
-  }
-}
+// function updateStar(e) {
+//   if(e.target.closest('inactive-button-star')){
+//     var id = getId(e);
+//     var index = getIndex(e);
+//     var activeStar = 'Images/star-active.svg';
+//     var inactiveStar = 'Images/star.svg';
+//     var transition = document.querySelector(`#idea-card[data-id=${id}] #inactive-button-star`);
+//     transition.src = activeStar;
+//     if(storageArray[index].star === false) {
+//       transiton.src = inactiveStar;
+//     } else {
+//       transition = activeStar;
+//     }
+//   }
+// }
+
+
 
 //  function updateStarBtn(event) {
 //   if (event.target.closest('#white-star-img')) {  
