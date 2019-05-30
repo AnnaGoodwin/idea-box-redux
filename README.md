@@ -10,5 +10,5 @@ IdeaBox is project designed to continue to develope skills using localStorage, d
 
 Below are screenshots of our page with multiple aspects of functionality.
 
-![]()
+![](_Users_ckoga_Turing_Mod_1_projects_idea-box-redux_index.html_title=asdfsafasf&body=+asdfasfasdf.png)
 ![]()
