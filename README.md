@@ -10,4 +10,4 @@ IdeaBox is project designed to continue to develope skills using localStorage, d
 
 Below are screenshots of our page with multiple aspects of functionality.
 
-![](image.png)
+![]()
