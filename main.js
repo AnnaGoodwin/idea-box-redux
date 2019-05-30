@@ -1,57 +1,13 @@
-// querySelectors buttons
-// var showStarred = document.querySelector('#show-starred-btn')
-// var swillBtn = document.querySelector('#swill-btn')
-// var plausibleBtn = document.querySelector('#plausible-btn')
-// var geniusBtn = document.querySelector('#genius-btn')
-// var addQuality = document.querySelector('#add-quality')
-// var searchBtn = document.querySelector('#search-btn')
-// var inactiveDlt = document.querySelector('#inactive-delete')
-// var inactiveDwn = document.querySelector('#inactive-down')
-// var activeDwn = document.querySelector('#active-down')
-// var inactiveUp = document.querySelector('#inactive-up')
-// var activeUp = document.querySelector('#active-up')
-
-// querySelectors inputs
-// var newIdea = new Idea(titleInput.value, bodyInput.value, star, Date.now())
-// newIdea.saveToStorage(array)
-
-// function for inseerting values from inputs to cards
-
-//insertAdjacentHTML
-
-
-//eventListeners
-// document.addEventListener('click', showStarred)
-// document.addEventListener('click', swillBtn)
-// document.addEventListener('click', plausibleBtn)
-// document.addEventListener('click', geniusBtn)
-// document.addEventListener('click', addQuality)
-// document.addEventListener('click', saveBtn)
-// document.addEventListener('click', searchBtn)
-// document.addEventListener('keyup', )
 var storageArray = []
-
 var mainContainer = document.querySelector('#card-populate');
-
 var titleInput = document.getElementById('input-title');
-
 var bodyInput = document.getElementById('text-body');
-
 var cardPopulator = document.getElementById('card-populate');
-
 var activeStr = document.querySelector('#active-star');
-
 var inactiveStr = document.querySelector('#inactive-star')
-
 var saveBtn = document.querySelector('#save-btn');
-
 var cardInst = document.querySelector('#idea-card');
-
 var removeContainer = document.querySelector('#delete-box')
-
-// var cardTitle = document.querySelector('#card-body')
-
-// var cardBody = document.querySelector('#idea-title')
 
 mainContainer.addEventListener('click', mainContainerFunctionality);
 mainContainer.addEventListener('focusout', editIdea)
@@ -60,8 +16,6 @@ mainContainer.addEventListener('click', getIndex)
 mainContainer.addEventListener('click', getId);
 saveBtn.addEventListener('click', saveAll);
 bodyInput.addEventListener('keyup', buttonToggle);
-// removeContainer.addEventListener('click', deleteCard);
-
 
 function mainContainerFunctionality() {
   getId(e);
@@ -131,13 +85,13 @@ function populator(obj) {
 };
 
 
-  function ideaPrompter() {
-   if(storageArray.length === 0) {
+function ideaPrompter() {
+  if(storageArray.length === 0) {
     cardPopulator.insertAdjacentHTML('afterbegin', `<p class='prompt-idea'> Please have an idea! </p>`)
-    } else {
+  } else {
     return
-    }
   }
+}
 
 function buttonToggle(e) {
   e.preventDefault();
@@ -161,47 +115,8 @@ function disableSaveButton() {
 function getId(e) {
   var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
   var targetId = ideaId
-  // console.log(e.target)
-    // console.log(ideaId)
-    // console.log(targetId)
-    // console.log(e.target)
 }
 
-// function getIndex(e) {
-//   // console.log(targetId)
-//   var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
-//   console.log(ideaId)
-//   var test = storageArray.findIndex(function(ideaObj){
-//   return ideaObj.id == parseInt(ideaId)
-//     });
-//   return test
-//   }
-
-// function deleteCard(e) {
-//   if(e.target.className === 'inactive-button-x') {
-//   var id = getId(e);
-//   var index = getIndex(e);
-//   console.log(index)
-//   storageArray[index].deleteFromStorage(index)
-//   e.target.closest('#idea-card').remove();
-//   ideaPrompter();
-//     }
-//   }
-
-// function updateStar(e) {
-//   if(e.target.closest('inactive-button-star')){
-//     var id = getId(e);
-//     var index = getIndex(e);
-//     var activeStar = 'Images/star-active.svg';
-//     var inactiveStar = 'Images/star.svg';
-//     var transition = document.querySelector(`#idea-card[data-id=${id}] #inactive-button-star`);
-//     transition.src = activeStar;
-//     if(storageArray[index].star === false) {
-//       transiton.src = inactiveStar;
-//     } else {
-//       transition = activeStar;
-//     }
-//   }
 function getIndex(e) {
   var ideaId = e.target.closest('#idea-card').getAttribute('data-id')
   console.log(ideaId)
@@ -227,7 +142,7 @@ function deleteCard(e) {
   var cardIndex = getCardIndex(cardId);
   var yellowStar = 'images/star-active.svg'; 
   var oldStar = document.querySelector(`.card[data-id="${cardId}"] #white-star-img`);
-  
+
   oldStar.src = yellowStar
   ideas[cardIndex].updateStar();
   if (ideas[cardIndex].star === false) {
@@ -259,6 +174,3 @@ function keyCodeUpdate(event) {
       editIdea(event);
   }
  } 
-
-
-
