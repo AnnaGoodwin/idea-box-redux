@@ -10,5 +10,5 @@ IdeaBox is project designed to continue to develope skills using localStorage, d
 
 Below are screenshots of our page with multiple aspects of functionality.
 
-![](https://files.slack.com/files-pri/T029P2S9M-FK3SXNF5W/image.png)
-![](https://files.slack.com/files-pri/T029P2S9M-FK3BLFNA0/image.png)
+![]()
+![]()
